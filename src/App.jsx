@@ -19,7 +19,7 @@ import AdminLogin from "./pages/AdminLogin";
 import AdminMessages from "./pages/Adminmessages";
 
 import { api } from "./api";
-import "./i18n"; // i18n ko import karna mat bhoolna
+
 
 const queryClient = new QueryClient();
 

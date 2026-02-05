@@ -12,6 +12,7 @@ import {
 const categories = ["All", "Living Room", "Bedroom", "Kitchen", "Commercial"];
 const DJANGO_API_URL = "https://interior-project01.onrender.com/api/projects/";
 
+
 export default function Projects() {
   const [searchParams] = useSearchParams();
   const [activeCategory, setActiveCategory] = useState("All");
