@@ -15,7 +15,9 @@ import Testimonials from "./pages/Testimonials";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import AddProject from "./pages/AddProject";
-import AdminLogin from "./pages/Adminlogin";
+// App.jsx mein ise check karein aur badlein
+import AdminLogin from "./pages/Adminlogin"; // 👈 'L' ko chota 'l' kar dein agar file ka naam Adminlogin.jsx hai
+
 import AdminMessages from "./pages/Adminmessages";
 
 import { api } from "./api";
