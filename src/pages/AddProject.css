@@ -1,0 +1,171 @@
+/* Container & Layout */
+.admin-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Header/Nav Section */
+.admin-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.msg-btn {
+  background: #2563eb;
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.msg-btn:hover {
+  background: #1d4ed8;
+}
+
+/* Layout for Form and List */
+.admin-content-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 2fr; /* Form left, List right */
+  gap: 30px;
+}
+
+/* Cards */
+.form-card, .list-card {
+  background: white;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* Form Styles */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.submit-btn {
+  background: #1e293b;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.cancel-btn {
+  background: #f1f5f9;
+  color: #64748b;
+  border: none;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Project List - Horizontal Layout */
+.admin-project-item {
+  display: grid;
+  grid-template-columns: 120px 1fr auto;
+  gap: 20px;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid #f1f5f9;
+  transition: 0.2s;
+}
+
+.admin-project-item:hover {
+  background: #f8fafc;
+}
+
+.img-wrapper img {
+  width: 100px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.info h4 {
+  margin: 0 0 5px 0;
+  color: #1e293b;
+}
+
+.info p {
+  color: #64748b;
+  font-size: 13px;
+  margin: 0;
+}
+
+/* BUTTONS FIX - This is what you needed */
+.btn-group {
+  display: flex;
+  gap: 10px;
+  min-width: 150px; /* Space for both buttons */
+  justify-content: flex-end;
+}
+
+.edit-btn, .del-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.edit-btn {
+  background-color: #ecf3ff;
+  color: #2563eb;
+}
+
+.edit-btn:hover {
+  background-color: #2563eb;
+  color: white;
+}
+
+.del-btn {
+  background-color: #fff1f2;
+  color: #e11d48;
+}
+
+.del-btn:hover {
+  background-color: #e11d48;
+  color: white;
+}
+
+/* Mobile Friendly */
+@media (max-width: 900px) {
+  .admin-content-wrapper {
+    grid-template-columns: 1fr;
+  }
+  
+  .admin-project-item {
+    grid-template-columns: 80px 1fr;
+  }
+  
+  .btn-group {
+    grid-column: span 2;
+    justify-content: flex-start;
+    margin-top: 10px;
+  }
+}
