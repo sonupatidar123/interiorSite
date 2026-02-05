@@ -18,7 +18,7 @@ import AddProject from "./pages/AddProject";
 // App.jsx mein ise check karein aur badlein
 import AdminLogin from "./pages/Adminlogin"; // 👈 'L' ko chota 'l' kar dein agar file ka naam Adminlogin.jsx hai
 
-import AdminMessages from "./pages/Adminmessages";
+import AdminMessages from "./pages/AdminMessages";
 
 import { api } from "./api";
 
