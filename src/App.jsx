@@ -15,7 +15,7 @@ import Testimonials from "./pages/Testimonials";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import AddProject from "./pages/AddProject";
-import AdminLogin from "./pages/AdminLogin";
+import AdminLogin from "./pages/Adminlogin";
 import AdminMessages from "./pages/Adminmessages";
 
 import { api } from "./api";
