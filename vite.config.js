@@ -9,10 +9,15 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
   },
-  plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
-  base:"https://github.com/sonupatidar123/interiorSite"
+  plugins: [
+    react(),
+    mode === "development" && componentTagger(),
+  ].filter(Boolean),
+  // 1. FIXED: Base should be the repository name, not the full GitHub URL
+  base: "/interiorSite/", 
   resolve: {
     alias: {
+      // 2. FIXED: Added the missing comma before this 'resolve' block
       "@": path.resolve(__dirname, "./src"),
     },
   },
