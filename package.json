@@ -84,4 +84,8 @@
     "typescript-eslint": "^8.38.0",
     "vite": "^7.3.1"
   }
+  backend: {
+  loadPath: 'locales/{{lng}}/{{ns}}.json'
+}
+
 }
