@@ -15,13 +15,10 @@ import Testimonials from "./pages/Testimonials";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import AddProject from "./pages/AddProject";
-// App.jsx mein ise check karein aur badlein
-import AdminLogin from "./pages/Adminlogin"; // 👈 'L' ko chota 'l' kar dein agar file ka naam Adminlogin.jsx hai
-
+import AdminLogin from "./pages/Adminlogin";
 import AdminMessages from "./pages/AdminMessages";
 
 import { api } from "./api";
-
 
 const queryClient = new QueryClient();
 
@@ -29,7 +26,7 @@ export default function App() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // 🔐 Check login session on refresh
+  // 🔐 Check admin session on refresh
   useEffect(() => {
     const token = localStorage.getItem("access_token");
 
@@ -41,8 +38,7 @@ export default function App() {
     api
       .get("me/")
       .then((res) => {
-        // Sirf superuser (admin) ko hi access dena hai
-        if (res.data.is_superuser) {
+        if (res.data?.is_superuser) {
           setUser(res.data);
         } else {
           localStorage.clear();
@@ -58,12 +54,15 @@ export default function App() {
       });
   }, []);
 
+  // ⏳ Loading screen
   if (loading) {
     return (
       <div className="flex items-center justify-center h-screen bg-background">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
-          <p className="font-serif text-lg text-muted-foreground">Verifying Lucky Interior Admin...</p>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4" />
+          <p className="font-serif text-lg text-muted-foreground">
+            Verifying Lucky Interior Admin...
+          </p>
         </div>
       </div>
     );
@@ -76,10 +75,9 @@ export default function App() {
         <Sonner />
 
         <HashRouter>
-          {/* ✅ Important: Layout ko user aur setUser dono pass kiye hain */}
-          <Layout user={user} setUser={setUser}> 
+          <Layout user={user} setUser={setUser}>
             <Routes>
-              {/* 🌍 Public Routes (Sab dekh sakte hain) */}
+              {/* 🌍 Public Routes */}
               <Route path="/" element={<Home />} />
               <Route path="/projects" element={<Projects />} />
               <Route path="/services" element={<Services />} />
@@ -87,22 +85,26 @@ export default function App() {
               <Route path="/contact" element={<Contact />} />
               <Route path="/about" element={<About />} />
 
-              {/* 🔑 Admin Login Route */}
+              {/* 🔑 Admin Login */}
               <Route
                 path="/admin-login"
                 element={
-                  user ? <Navigate to="/admin-messages" replace /> : <AdminLogin onLogin={setUser} />
+                  user ? (
+                    <Navigate to="/admin-messages" replace />
+                  ) : (
+                    <AdminLogin onLogin={setUser} />
+                  )
                 }
               />
 
-              {/* 🛡️ Protected Admin Routes (Sirf login ke baad) */}
+              {/* 🛡️ Protected Routes */}
               <Route
                 path="/admin-messages"
                 element={
                   user ? <AdminMessages /> : <Navigate to="/admin-login" replace />
                 }
               />
-              
+
               <Route
                 path="/addproject"
                 element={
@@ -110,7 +112,7 @@ export default function App() {
                 }
               />
 
-              {/* 🚫 404 Route */}
+              {/* 🚫 404 */}
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Layout>
