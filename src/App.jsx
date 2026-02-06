@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import { Toaster } from "@/Components/ui/toaster";
@@ -75,7 +75,7 @@ export default function App() {
         <Toaster />
         <Sonner />
 
-        <BrowserRouter>
+        <HashRouter>
           {/* ✅ Important: Layout ko user aur setUser dono pass kiye hain */}
           <Layout user={user} setUser={setUser}> 
             <Routes>
@@ -114,7 +114,7 @@ export default function App() {
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Layout>
-        </BrowserRouter>
+        </HashRouter>
       </TooltipProvider>
     </QueryClientProvider>
   );
